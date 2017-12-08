@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Road Trip </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- link to js file  -->
+    <script src="./assets/js/road_trip.js"></script>
+    <!-- css reset-->
+    <link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/3.3/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./assets/css/cover.css">
+    <!-- custom css-->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <!-- Favicon   -->
+    <link rel="icon" type="image/png" href="https://adoptahighway.net/wp-content/uploads/2014/05/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/3.3/assets/js/ie10-viewport-bug-workaround.js"></script>
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner cover">
+                    <div id="landing-page">
+                        <h1 class="cover-heading">RoadTrip</h1>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" id="spotAuth" href="https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123">Authorise Spotify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="roadtrip-form-page">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Road Trip Form</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="origin-input">Starting Location</label>
+                                    <input type="text" class="form-control" id="origin-input" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="destination-input">Destination</label>
+                                    <input type="text" class="form-control" id="destination-input" />
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                                  <button type="submit" class="btn btn-primary" id="continue">Continue</button>
+                            </form>
+                        </div>
+                        <div class="panel-footer">
+                        </div>
+                    </div>
+                </div>
+                <div id="city-page" class="panel panel-default">
+                    <h1>Road Trip Playlist</h1>
+                    <h2>Cities visited during this trip</h2>
+                    <table class="city-table">
+                        <tbody>
+                            <tr>
+                                <td>Greenville</td>
+                            </tr>
+                            <tr>
+                                <td>Charlotte</td>
+                            </tr>
+                            <tr>
+                                <td>Richmond</td>
+                            </tr>
+                            <tr>
+                                <td>Washington</td>
+                            </tr>
+                            <tr>
+                                <td>Philadelphia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn btn-primary" id="continue">Continue</button>
+                </div>
+                <div id="playlist-page" class="panel panel-default">
+                    <h1>Road Trip Playlist</h1>
+                    <!-- <iframe src="https://open.spotify.com/embed?uri=https://open.spotify.com/user/officialmiguel/playlist/7o9OW7GWfcP3XX0AS4qCLv&theme=white" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe> -->
+                    <button class="btn btn-primary">Save to Spotify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
