@@ -29,7 +29,7 @@ $(document).ready(function() {
     $("#spotAuth").on("click", function(event) {
         event.preventDefault();
 
-        window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123";
+        window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/.&response_type=token&state=123";
     });//ends spotify authorisation
 
     //declare global variables
@@ -59,6 +59,7 @@ $(document).ready(function() {
     $("#continue").on("click", function() {
         //take value from selection on form and get city
         //get city from array parsed from localStorage
+        console.log("clicked");
      	city = "charlotte"; //whatever is passed from the click event
         //for each city ,call spotify and get corresponding playlist
         function getCityPlaylistObj() {
