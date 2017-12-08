@@ -56,15 +56,15 @@ $(document).ready(function() {
     //get spotify user id
     //getUserId();
     //on clicking continue button
-    $("#continue2").on("click", function() {
+    $("#curate").on("click", function() {
         //take value from selection on form and get city
         //get city from array parsed from localStorage
-        console.log("clicked");
+        var playlistArray = [];
      	city = "charlotte"; //whatever is passed from the click event
         //for each city ,call spotify and get corresponding playlist
         function getCityPlaylistObj() {
             //create new array of playlists
-            var playlistArray = [];
+            
             
             $.ajax({
                 url: 'https://api.spotify.com/v1/search?q=' + city + '&type=playlist',
