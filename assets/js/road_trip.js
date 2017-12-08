@@ -9,8 +9,7 @@ if (window.location.hash) {
     console.log(accessKeyArray);
     var accessToken = accessKeyArray[1];
     console.log(accessToken);
-    //get user ID after authentication
-    getUserId();
+    
 } else {
    alert("You need to Authorise Spotify");
 }
@@ -52,7 +51,8 @@ $(document).ready(function() {
 
             })//ends ajax call
     }//ends getUserId function
-
+    //get user ID after authentication
+    getUserId();
     //get spotify user id
     //getUserId();
     //on clicking continue button
