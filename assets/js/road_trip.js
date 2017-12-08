@@ -56,7 +56,7 @@ $(document).ready(function() {
     //get spotify user id
     //getUserId();
     //on clicking continue button
-    $("#continue").on("click", function() {
+    $("#continue2").on("click", function() {
         //take value from selection on form and get city
         //get city from array parsed from localStorage
         console.log("clicked");
