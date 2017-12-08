@@ -22,7 +22,7 @@ $(document).ready(function() {
     var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
     var clientSecret = "e85c7c6bd60c48d1986be1d5b6b3095c";
     var scope = "playlist-modify-public";
-    var redirectUri = 'https://jshockley99.github.io/Roadtrip/index.html';
+    var redirectUri = 'https://ovie4.github.io/Roadtrip-Spotify-API-testing/index.html';
     var spotifyAuthUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientID + '&redirect_uri=' + redirectUri + '&scope=' + scope + '&response_type=token';
 
     //spotify auth redirect on clicking authorise button
