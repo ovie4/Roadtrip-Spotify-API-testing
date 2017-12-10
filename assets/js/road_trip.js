@@ -3,7 +3,7 @@ if (window.location.hash) {
 
     var hashArray = hashString.split("&");
     var accessKeyArray = hashArray[0].split("=");
-    var cityArray = localStorage.getItem(‘citiesAndState’);
+    var cityArray = localStorage.getItem('citiesAndState');
     cityArray = JSON.parse(cityArray);
     console.log(cityArray);
     var accessToken = accessKeyArray[1];
