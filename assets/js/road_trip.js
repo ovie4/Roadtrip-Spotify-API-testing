@@ -123,8 +123,8 @@ $(document).ready(function() {
     //second Google AJAX call, (?within continue button?)
     $("#continue").on("click", function(e) {
         e.preventDefault();
-        setTimeOut( displayCities(),10000);
-       
+        
+       displayCities()
     });
 
     // function sets the clicked table row to 'active' and 
