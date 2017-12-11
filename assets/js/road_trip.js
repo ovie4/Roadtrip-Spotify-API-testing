@@ -33,7 +33,7 @@ $(document).ready(function() {
             cityRow.addClass("deselected");
             cityRow.attr("data-item-city", city);
             cityCell.append(cityState);
-            cityRow.append(cityCell);
+            cityRow.append("<button class='listButton'>"+cityCell+"</button>");
             $("#city-list").append(cityRow);
         }
     }
@@ -71,8 +71,8 @@ $(document).ready(function() {
         console.log("ran displayCities");
     });
 
-    //function to get city from clicking on a city in the table
-        $("td").on("click", function(){
+    //get city from clicking on a city in the table
+        $(".listButton").on("click", function(){
             console.log("you clicked a city");
             var cityClicked = this.attr('data-item-city');
             city = cityClicked;
