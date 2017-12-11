@@ -72,13 +72,13 @@ $(document).ready(function() {
     });
 
     //function to get city from clicking on a city in the table
-    function getCityfromList(){
         $(".deselected").on("click", function(){
             var cityClicked = this.attr('data-item-city');
             city = cityClicked;
             console.log(city);
-        })
-    }
+        });
+        
+
 
     $("#curate").on("click", function() {
         //take value from selection on form and get city
