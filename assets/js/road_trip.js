@@ -16,6 +16,7 @@ $(document).ready(function() {
     console.log(cityArray);
 
     function displayCities() {
+        console.log("dislpay cities ran")
         $("#city-list").empty();
         for (var i = 0; i < cityArray.length; i++) {
             var cityRow = $("<tr>");
