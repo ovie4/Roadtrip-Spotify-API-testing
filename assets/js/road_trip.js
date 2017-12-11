@@ -26,12 +26,13 @@ $(document).ready(function() {
         $("#city-list").empty();
         for (var i = 0; i < cityArray.length; i++) {
             var cityRow = $("<tr>");
-            var cityCell = $("<td><button class='listButton'></button></td>");
+            var cityCell = $("<td>");
             var cityState = cityArray[i];
             var citySplit = cityState.split(",");
             var city = citySplit[0];
             cityRow.addClass("deselected");
             cityRow.attr("data-item-city", city);
+          
             cityCell.append(cityState);
             cityRow.append(cityCell);
             $("#city-list").append(cityRow);
@@ -71,14 +72,21 @@ $(document).ready(function() {
         console.log("ran displayCities");
     });
 
-    //get city from clicking on a city in the table
-        $(".listButton").on("click", function(){
-            console.log("you clicked a city");
-            var cityClicked = this.attr('data-item-city');
-            city = cityClicked;
-            console.log(city);
+        // function sets the clicked table row to 'active' and 
+        // sets all other rows to 'inactive'
+        // *enhancement* can be updated for multiple 'active' selections
+        $("#city-table tbody").on("click", "tr", function() {
+            $(this).toggleClass("selected deselected");
+            $(this).siblings().attr("class", "deselected");
+            var b = $(".selected").attr("data-item-city");
+            console.log(b);
+
         });
-        
+        // city variable needed for Spotify query
+        // *enhancement* will need updates if allowing multiple selections
+        city = $(".selected").attr("data-item-city");
+        console.log(city);
+
 
 
     $("#curate").on("click", function() {
@@ -108,7 +116,7 @@ $(document).ready(function() {
                     cityPlaylist[city] = playlistArray;
                     console.log(cityPlaylist);
                 } //end ajax call function
-                //display playlist in browser
+                
             }); //end ajax call
         } //end getCityPlaylistObj function
         getCityPlaylistObj();
@@ -139,7 +147,7 @@ $(document).ready(function() {
 
 
 
-});
+}) //ends document ready
 
 
 //get spotify authorisation
