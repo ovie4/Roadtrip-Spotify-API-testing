@@ -15,7 +15,7 @@ $(document).ready(function() {
     cityArray = JSON.parse(cityArray);
     console.log(cityArray);
 
-    function displayCities() {
+   /* function displayCities() {
         $("#city-list").empty();
         for (var i = 0; i < cityArray.length; i++) {
             var cityRow = $("<tr>");
@@ -29,7 +29,7 @@ $(document).ready(function() {
             cityRow.append(cityCell);
             $("#city-list").append(cityRow);
         }
-    }
+    } */
 
     //get spotify authorisation
     //var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
