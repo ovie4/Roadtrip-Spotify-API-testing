@@ -15,7 +15,7 @@ $(document).ready(function() {
     cityArray = JSON.parse(cityArray);
     console.log(cityArray);
 
-   /* function displayCities() {
+    function displayCities() {
         $("#city-list").empty();
         for (var i = 0; i < cityArray.length; i++) {
             var cityRow = $("<tr>");
@@ -29,7 +29,7 @@ $(document).ready(function() {
             cityRow.append(cityCell);
             $("#city-list").append(cityRow);
         }
-    } */
+    } 
 
     //get spotify authorisation
     //var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
@@ -41,7 +41,7 @@ $(document).ready(function() {
     //spotify auth redirect on clicking authorise button
     $("#spotAuth").on("click", function(event) {
         event.preventDefault();
-        
+
         window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
     }); //ends spotify authorisation
 
@@ -121,8 +121,9 @@ $(document).ready(function() {
 
     // this click listener will need to be updated to trigger after 
     //second Google AJAX call, (?within continue button?)
-    $("#submit").on("click", function(e) {
-        event.preventDefault();
+    $("#continue").on("click", function(e) {
+        e.preventDefault();
+        setTimeOut(10000);
         displayCities();
     });
 
