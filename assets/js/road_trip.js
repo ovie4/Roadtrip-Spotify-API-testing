@@ -26,14 +26,14 @@ $(document).ready(function() {
         $("#city-list").empty();
         for (var i = 0; i < cityArray.length; i++) {
             var cityRow = $("<tr>");
-            var cityCell = $("<td>");
+            var cityCell = $("<td><button class='listButton'></button></td>");
             var cityState = cityArray[i];
             var citySplit = cityState.split(",");
             var city = citySplit[0];
             cityRow.addClass("deselected");
             cityRow.attr("data-item-city", city);
             cityCell.append(cityState);
-            cityRow.append("<button class='listButton'>"+cityCell+"</button>");
+            cityRow.append(cityCell);
             $("#city-list").append(cityRow);
         }
     }
