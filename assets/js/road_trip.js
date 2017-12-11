@@ -123,7 +123,7 @@ $(document).ready(function() {
     //second Google AJAX call, (?within continue button?)
     $("#continue").on("click", function(e) {
         e.preventDefault();
-        setTimeOut( displayCities(),10000);
+        setTimeout( displayCities(),5000);
        
     });
 
