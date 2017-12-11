@@ -124,7 +124,7 @@ $(document).ready(function() {
     $("#continue").on("click", function(e) {
         e.preventDefault();
         
-       displayCities()
+       setTimeout(displayCities,5000);
     });
 
     // function sets the clicked table row to 'active' and 
