@@ -29,7 +29,7 @@ $(document).ready(function() {
             cityRow.append(cityCell);
             $("#city-list").append(cityRow);
         }
-    }
+    } 
 
     //get spotify authorisation
     //var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
