@@ -11,12 +11,12 @@ $(document).ready(function() {
     // function to display each Google city in a table on the page
     //get city/state array string from local storage
 
-    var cityArray = localStorage.getItem('citiesAndState');
-    cityArray = JSON.parse(cityArray);
-    console.log(cityArray);
 
     function displayCities() {
-        console.log("dislpay cities ran")
+        var cityArray = localStorage.getItem('citiesAndState');
+        cityArray = JSON.parse(cityArray);
+        console.log(cityArray);
+        console.log("dislpay cities ran");
         $("#city-list").empty();
         for (var i = 0; i < cityArray.length; i++) {
             var cityRow = $("<tr>");
@@ -30,7 +30,7 @@ $(document).ready(function() {
             cityRow.append(cityCell);
             $("#city-list").append(cityRow);
         }
-    } 
+    }
 
     //get spotify authorisation
     //var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
@@ -124,8 +124,8 @@ $(document).ready(function() {
     //second Google AJAX call, (?within continue button?)
     $("#continue").on("click", function(e) {
         e.preventDefault();
-        
-       setTimeout(displayCities,10000);
+
+        setTimeout(displayCities, 10000);
     });
 
     // function sets the clicked table row to 'active' and 
