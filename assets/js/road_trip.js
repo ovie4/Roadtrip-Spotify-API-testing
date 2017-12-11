@@ -8,8 +8,13 @@ if (window.location.hash) {
     alert("You need to Authorise Spotify"); //use modal instead
 }
 $(document).ready(function() {
-    // function to display each Google city in a table on the page
-    //get city/state array string from local storage
+    
+    //declare global variables
+    var userId;
+    var cityPlaylist = {};
+    var city;
+    var currentPlaylistId;
+    var playlistArray = [];
 
 
     function displayCities() {
@@ -32,21 +37,6 @@ $(document).ready(function() {
             $("#city-list").append(cityRow);
         }
     }
-
-
-    //spotify auth redirect on clicking authorise button
-    $("#spotAuth").on("click", function(event) {
-        event.preventDefault();
-        window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
-    }); //ends spotify authorisation
-
-    //declare global variables
-    var userId;
-    var cityPlaylist = {};
-    var city;
-    var currentPlaylistId;
-    var playlistArray = [];
-    
     //function to get user id
     function getUserId() {
         $.ajax({
@@ -55,32 +45,46 @@ $(document).ready(function() {
                 'Authorization': 'Bearer ' + accessToken,
             },
             success: function(response) {
-                console.log(response);
+
                 userId = response.id;
+                console.log(userId);
 
             } //ends success function
 
         }) //ends ajax call
-    } 
+    } //ends getuserid function
 
-    //ends getUserId function
-    //get user ID after authentication
+    //spotify auth redirect on clicking authorise button
+    $("#spotAuth").on("click", function(event) {
+        event.preventDefault();
+        window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
+    }); //ends spotify authorisation
+
+  //get user ID after authentication
     getUserId();
 
     // this click listener will need to be updated to trigger after 
     //second Google AJAX call, (?within continue button?)
     $("#continue").on("click", function(e) {
         e.preventDefault();
-        console.log("clicked continue");
         setTimeout(displayCities, 10000);
         console.log("ran displayCities");
     });
+
+    //function to get city from clicking on a city in the table
+    function getCityfromList(){
+        $(".deselected").on("click", function(){
+            var cityClicked = this.attr('data-item-city');
+            city = cityClicked;
+            console.log(city);
+        })
+    }
 
     $("#curate").on("click", function() {
         //take value from selection on form and get city
 
         playlistArray = [];
-        city = "charlotte"; 
+        
         //whatever is passed from the click event
         //for each city ,call spotify and get corresponding playlist
         function getCityPlaylistObj() {
@@ -122,13 +126,13 @@ $(document).ready(function() {
             $("#playlist-page").html('<iframe src="https://open.spotify.com/embed?uri=https://open.spotify.com/user/"' + userId + '"/playlist/"' + currentPlaylistId + '"&theme=white" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>')
         } //end of randomPlaylistSel
         randomPlaylistSel();
-        
+
 
     }); //ends continue button click listener
 
 
 
-    
+
 
 
 
@@ -137,9 +141,9 @@ $(document).ready(function() {
 });
 
 
-        //get spotify authorisation
-    //var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
-    //var clientSecret = "e85c7c6bd60c48d1986be1d5b6b3095c";
-    //var scope = "playlist-modify-public";
-    //var redirectUri = 'https://ovie4.github.io/Roadtrip-Spotify-API-testing/index.html';
-    //var spotifyAuthUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientID + '&redirect_uri=' + redirectUri + '&scope=' + scope + '&response_type=token';
+//get spotify authorisation
+//var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
+//var clientSecret = "e85c7c6bd60c48d1986be1d5b6b3095c";
+//var scope = "playlist-modify-public";
+//var redirectUri = 'https://ovie4.github.io/Roadtrip-Spotify-API-testing/index.html';
+//var spotifyAuthUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientID + '&redirect_uri=' + redirectUri + '&scope=' + scope + '&response_type=token';
