@@ -13,6 +13,7 @@ $(document).ready(function() {
 
 
     function displayCities() {
+
         var cityArray = localStorage.getItem('citiesAndState');
         cityArray = JSON.parse(cityArray);
         console.log(cityArray);
@@ -124,8 +125,9 @@ $(document).ready(function() {
     //second Google AJAX call, (?within continue button?)
     $("#continue").on("click", function(e) {
         e.preventDefault();
-
+        console.log("clicked continue");
         setTimeout(displayCities, 10000);
+        console.log("ran displayCities");
     });
 
     // function sets the clicked table row to 'active' and 
