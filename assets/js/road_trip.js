@@ -16,6 +16,7 @@ $(document).ready(function() {
     console.log(cityArray);
 
     function displayCities() {
+        console.log("dislpay cities ran")
         $("#city-list").empty();
         for (var i = 0; i < cityArray.length; i++) {
             var cityRow = $("<tr>");
@@ -124,7 +125,7 @@ $(document).ready(function() {
     $("#continue").on("click", function(e) {
         e.preventDefault();
         
-       setTimeout(displayCities,5000);
+       setTimeout(displayCities,10000);
     });
 
     // function sets the clicked table row to 'active' and 
