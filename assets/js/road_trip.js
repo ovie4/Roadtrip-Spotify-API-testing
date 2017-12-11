@@ -73,6 +73,7 @@ $(document).ready(function() {
 
     //function to get city from clicking on a city in the table
         $(".deselected").on("click", function(){
+            console.log("you clicked a city");
             var cityClicked = this.attr('data-item-city');
             city = cityClicked;
             console.log(city);
