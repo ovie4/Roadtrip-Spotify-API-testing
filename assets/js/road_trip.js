@@ -133,7 +133,7 @@ $(document).ready(function() {
             currentPlaylistId = playlistArray[randomiser];
             console.log(currentPlaylistId);
             console.log(userId);
-            var iframeLink = "https://open.spotify.com/embed?uri=https://open.spotify.com/user/" + userId + "/playlist/" + currentPlaylistId + "&theme=white width='100%' height='380' frameborder='0' allowtransparency='true'";
+            var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+userId+":playlist:"+currentPlaylistId+"width=300 height=380 frameborder=0 allowtransparency=true";
             $("#playlist-page").html('<iframe src=' + iframeLink + '></iframe>');
         } //end of randomPlaylistSel
         randomPlaylistSel();
