@@ -8,7 +8,7 @@ if (window.location.hash) {
     alert("You need to Authorise Spotify"); //use modal instead
 }
 $(document).ready(function() {
-    
+
     //declare global variables
     var userId;
     var cityPlaylist = {};
@@ -24,16 +24,16 @@ $(document).ready(function() {
         console.log(cityArray);
         console.log("display cities ran");
         $("#city-list").empty();
-        var cityRow = $("<tr>");
-        var cityCell = $("<td>"); 
+
         for (var i = 0; i < cityArray.length; i++) {
-            
+            var cityRow = $("<tr>");
+            var cityCell = $("<td>");
             var cityState = cityArray[i];
-            var citySplit = cityState.split(","); 
+            var citySplit = cityState.split(",");
             var city = citySplit[0];
             cityRow.addClass("deselected");
             cityRow.attr("data-item-city", city);
-          
+
             cityCell.append(cityState);
             cityRow.append(cityCell);
             $("#city-list").append(cityRow);
@@ -62,7 +62,7 @@ $(document).ready(function() {
         window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
     }); //ends spotify authorisation
 
-  //get user ID after authentication
+    //get user ID after authentication
     getUserId();
 
     // this click listener will need to be updated to trigger after 
@@ -73,20 +73,20 @@ $(document).ready(function() {
         console.log("ran displayCities");
     });
 
-        // function sets the clicked table row to 'active' and 
-        // sets all other rows to 'inactive'
-        // *enhancement* can be updated for multiple 'active' selections
-        $("#city-table tbody").on("click", "tr", function() {
-            $(this).toggleClass("selected deselected");
-            $(this).siblings().attr("class", "deselected");
-            var b = $(".selected").attr("data-item-city");
-            console.log(b);
+    // function sets the clicked table row to 'active' and 
+    // sets all other rows to 'inactive'
+    // *enhancement* can be updated for multiple 'active' selections
+    $("#city-table tbody").on("click", "tr", function() {
+        $(this).toggleClass("selected deselected");
+        $(this).siblings().attr("class", "deselected");
+        var b = $(".selected").attr("data-item-city");
+        console.log(b);
 
-        });
-        // city variable needed for Spotify query
-        // *enhancement* will need updates if allowing multiple selections
-        city = $(".selected").attr("data-item-city");
-        console.log(city);
+    });
+    // city variable needed for Spotify query
+    // *enhancement* will need updates if allowing multiple selections
+    city = $(".selected").attr("data-item-city");
+    console.log(city);
 
 
 
@@ -94,7 +94,7 @@ $(document).ready(function() {
         //take value from selection on form and get city
 
         playlistArray = [];
-        city = atlanta;
+        city = 'atlanta';
         //whatever is passed from the click event
         //for each city ,call spotify and get corresponding playlist
         function getCityPlaylistObj() {
@@ -117,7 +117,7 @@ $(document).ready(function() {
                     cityPlaylist[city] = playlistArray;
                     console.log(cityPlaylist);
                 } //end ajax call function
-                
+
             }); //end ajax call
         } //end getCityPlaylistObj function
         getCityPlaylistObj();
@@ -134,7 +134,7 @@ $(document).ready(function() {
             console.log(currentPlaylistId);
             console.log(userId);
             var iframeLink = "https://open.spotify.com/embed?uri=https://open.spotify.com/user/" + userId + "/playlist/" + currentPlaylistId + '&theme=white width="100%" height="380" frameborder="0" allowtransparency="true"';
-            $("#playlist-page").html('<iframe src='+iframeLink+'></iframe>');
+            $("#playlist-page").html('<iframe src=' + iframeLink + '></iframe>');
         } //end of randomPlaylistSel
         randomPlaylistSel();
         setTimeout(randomPlaylistSel, 5000);
