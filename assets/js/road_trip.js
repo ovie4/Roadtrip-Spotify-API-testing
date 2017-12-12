@@ -24,11 +24,12 @@ $(document).ready(function() {
         console.log(cityArray);
         console.log("display cities ran");
         $("#city-list").empty();
+        var cityRow = $("<tr>");
+        var cityCell = $("<td>"); 
         for (var i = 0; i < cityArray.length; i++) {
-            var cityRow = $("<tr>");
-            var cityCell = $("<td>");
+            
             var cityState = cityArray[i];
-            var citySplit = cityState.split(",");
+            var citySplit = cityState.split(","); 
             var city = citySplit[0];
             cityRow.addClass("deselected");
             cityRow.attr("data-item-city", city);
