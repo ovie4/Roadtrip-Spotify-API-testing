@@ -94,7 +94,7 @@ $(document).ready(function() {
         //take value from selection on form and get city
 
         playlistArray = [];
-        
+        city = atlanta;
         //whatever is passed from the click event
         //for each city ,call spotify and get corresponding playlist
         function getCityPlaylistObj() {
@@ -133,7 +133,8 @@ $(document).ready(function() {
             currentPlaylistId = playlistArray[randomiser];
             console.log(currentPlaylistId);
             console.log(userId);
-            $("#playlist-page").html('<iframe src="https://open.spotify.com/embed?uri=https://open.spotify.com/user/"' + userId + "/playlist/" + currentPlaylistId + "&theme=white width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>')
+            var iframeLink = "https://open.spotify.com/embed?uri=https://open.spotify.com/user/" + userId + "/playlist/" + currentPlaylistId + '&theme=white width="100%" height="380" frameborder="0" allowtransparency="true"';
+            $("#playlist-page").html('<iframe src='+iframeLink+'></iframe>');
         } //end of randomPlaylistSel
         randomPlaylistSel();
         setTimeout(randomPlaylistSel, 5000);
